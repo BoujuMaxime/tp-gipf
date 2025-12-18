@@ -10,10 +10,11 @@
 
 plugins {
     id 'org.liquibase.gradle' version '2.2.0'
+    id "org.sonarqube" version "2.5.0" // Replace with latest scanner version number
 }
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
-
+apply plugin: 'org.sonarqube'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -38,8 +39,6 @@ dependencies {
     classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.5'
 }
 
-apply plugin: 'org.sonarqube'
-
 jar {
     manifest {
         attributes 'Main-Class': 'gipf.Main'
@@ -48,6 +47,7 @@ jar {
 
 sonarqube {
   properties {
-    property "http://172.17.0.1:9000/", "http://sonarserver.com"
+    property "sonar.projectKey", "TpJenkins"
+    property "sonar.host.url", "http://172.17.0.1:9000"
   }
 }
