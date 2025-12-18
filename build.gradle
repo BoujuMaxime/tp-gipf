@@ -17,6 +17,11 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'org.sonarqube'
 
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+}
 
 // In this section you declare where to find the dependencies of your project
 repositories {
