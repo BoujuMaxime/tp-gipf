@@ -12,9 +12,9 @@ pipeline {
                 sh './gradlew -D https.proxyHost=proxy1-rech -D https.proxyPort=3128 test'
             }
         }
-        stage('Deploy') {
+        stage('Sonar') {
             steps {
-                echo 'Deploying....'
+                echo 'SonarQube'
             }
         }
     }
