@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Jacoco') {
             steps {
-                sh "./gradlew build jacocoTestReport sonarqube"
+                sh "./gradlew -D https.proxyHost=proxy1-rech -D https.proxyPort=3128 build jacocoTestReport sonarqube"
             }
         }
     }
