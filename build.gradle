@@ -23,8 +23,8 @@ jacoco {
 
 jacocoTestReport {
     reports {
-        html.enabled true
-        xml.enabled true
+        html.required true
+        xml.required true
         xml.destination file("${buildDir}/reports/jacoco.xml")
     }
 }
