@@ -2,20 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-        
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh './gradlew -D https.proxyHost=proxy1-rech -D https.proxyPort=3128 compileJava'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo './gradlew -D https.proxyHost=proxy1-rech -D https.proxyPort=3128 test'
             }
         }
         stage('Deploy') {
